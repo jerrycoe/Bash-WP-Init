@@ -1,7 +1,8 @@
 #!/bin/bash
-
+#Set variables
 remote=$1
 directory=$1
+#JSON post data
 generate_post_data=$(cat <<-END
 {
     "name": "WP-Theme-${remote}",
@@ -14,10 +15,15 @@ generate_post_data=$(cat <<-END
 }
 END
 )
-curl -s -H 'Content-Type: application/json' -u OUATHTOKEN:x-oauth-basic -d "$generate_post_data" "https://api.github.com/user/repos"
+#Git repos
 theme="https://github.com/jerrycoe/wp-base-theme.git"
 wp="https://github.com/WordPress/WordPress.git"
+#Generated git repo
 remote="https://github.com/jerrycoe/WP-Theme-${directory}"
+
+#curl call Github API
+curl -s -H 'Content-Type: application/json' -u OUATHTOKEN:x-oauth-basic -d "$generate_post_data" "https://api.github.com/user/repos"
+
 
 #make new directory for clone
 mkdir $directory
