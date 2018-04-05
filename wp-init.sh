@@ -14,7 +14,7 @@ generate_post_data=$(cat <<-END
 }
 END
 )
-curl -s -H 'Content-Type: application/json' -u 8be6390855b847a87138b6630455c9b027402596:x-oauth-basic -d "$generate_post_data" "https://api.github.com/user/repos"
+curl -s -H 'Content-Type: application/json' -u OUATHTOKEN:x-oauth-basic -d "$generate_post_data" "https://api.github.com/user/repos"
 theme="https://github.com/jerrycoe/wp-base-theme.git"
 wp="https://github.com/WordPress/WordPress.git"
 remote="https://github.com/jerrycoe/WP-Theme-${directory}"
