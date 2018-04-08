@@ -19,19 +19,11 @@
 <p>
 	<ul>
 		<li>
-			Apache
-			<li>
-				Requires unixd_module to be set with proper user and group in httpd.conf
-			</li>
-			<li>
-				Requires Include /private/etc/apache2/extra/httpd-vhosts.conf to be uncommented
+			Apache Requires unixd_module to be set with proper user and group in httpd.conf, Requires Include /private/etc/apache2/extra/httpd-vhosts.conf to be uncommented
 			</li>
 		</li>
 		<li>
-			MySQL
-			<li>
-				Requires valid credentials to create new databases
-			</li>
+			MySQL Requires valid credentials to create new databases
 		</li>
 		<li>
 			Script is configured to set up a new website in current working directory. This can be modified by adding another prompt at the beginning of the script.
@@ -40,10 +32,7 @@
 			 This script must be run under sudo for editing hosts and starting apache, as well as updating permissions.
 		</li>
 		<li>
-			Wordpress
-			<li>
-				Wordpress will have to finish installation in web browser to create wp-config.php with auth keys and database connection credentials.
-			</li>
+			Wordpress will have to finish installation in web browser to create wp-config.php with auth keys and database connection credentials.
 		</li>
 	</ul>
 
