@@ -47,5 +47,4 @@
 	<li>MySQL CLI</li>
 	<li>Git CLI</li>
 	<li>Git API OAuth Token</li>
-	<li>GNU sed</li>
 </ul>
