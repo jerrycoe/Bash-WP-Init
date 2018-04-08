@@ -38,6 +38,11 @@
 
 </p>
 
+## Usage
+
+<p>sudo wp-init.sh</p>
+<p>Follow on screen promts</p>
+
 
 ## Dependencies
 
