@@ -34,6 +34,9 @@
 		<li>
 			Wordpress will have to finish installation in web browser to create wp-config.php with auth keys and database connection credentials.
 		</li>
+		<li>
+			If homebrew is not installed you will get an error when running brew commands (brew services stop|start mysql). This can be modified to accomodate another environment using other mysql cli commands for restarting mysql.
+		</li>
 	</ul>
 
 </p>
@@ -47,6 +50,7 @@
 ## Dependencies
 
 <ul>
+	<li>Homebrew</li>
 	<li>PHP CLI</li>
 	<li>Apache2</li>
 	<li>MySQL CLI</li>
