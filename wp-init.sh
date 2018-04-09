@@ -68,7 +68,7 @@ VHOSTSFILE="/etc/apache2/extra/httpd-vhosts.conf"
 cp $VHOSTSFILE ${VHOSTSFILE}.original
 
 localIP=$(ipconfig getifaddr en1)
-#vhost with wildcard dns xip.io
+#vhost file with wildcard dns xip.io
 echo "<VirtualHost *:80>" >> $VHOSTSFILE
 echo -e "\tDocumentRoot \"${curdir}\"" >> $VHOSTSFILE
 echo -e "\tServerName ${directory}.loc" >> $VHOSTSFILE
