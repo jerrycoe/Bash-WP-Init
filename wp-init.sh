@@ -52,6 +52,10 @@ cd ..
 cd ..
 cd ..
 curdir=$(pwd)
+#restart mysql server
+brew services stop mysql
+brew services start mysql
+#create db
 MYSQL_PWD="$password" mysql -u root -e "CREATE DATABASE $dbName;"
 
 #/etc/hosts
@@ -60,11 +64,15 @@ echo -e "127.0.0.1\t${directory}.loc" >> /etc/hosts
 
 #httpd-vhosts.conf
 VHOSTSFILE="/etc/apache2/extra/httpd-vhosts.conf"
+#backup
 cp $VHOSTSFILE ${VHOSTSFILE}.original
+
+localIP=$(ipconfig getifaddr en1)
+#vhost with wildcard dns xip.io
 echo "<VirtualHost *:80>" >> $VHOSTSFILE
 echo -e "\tDocumentRoot \"${curdir}\"" >> $VHOSTSFILE
 echo -e "\tServerName ${directory}.loc" >> $VHOSTSFILE
-echo -e "\tServerAlias www.${directory}.loc" >> $VHOSTSFILE
+echo -e "\tServerAlias ${directory}.loc.${localIP}.xip.io" >> $VHOSTSFILE
 echo -e "\t<Directory \"${curdir}\">" >> $VHOSTSFILE
 echo -e "\t\tDirectoryIndex index.html index.php" >> $VHOSTSFILE
 echo -e "\t\tOptions +Includes +Indexes +FollowSymLinks" >> $VHOSTSFILE
@@ -73,6 +81,8 @@ echo -e "\t\tRequire all granted" >> $VHOSTSFILE
 echo -e "\t\tAllowOverride all" >> $VHOSTSFILE
 echo -e "\t</Directory>" >> $VHOSTSFILE
 echo '</VirtualHost>' >> $VHOSTSFILE
+echo '</VirtualHost>' >> $VHOSTSFILE
+
 #allow writing to wp-config.php
 sudo chown -R jerrycoe:admin "${curdir}"
 #restart apache
